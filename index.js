@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 
+const config = require('./config');
+
 const http = require('http');
 const server = http.createServer(app);
-server.listen(3000);
+server.listen(config.port);
 
 const mongoose = require('./models/model');
 const credentials= require('./credentials');
