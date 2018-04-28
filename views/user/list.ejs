@@ -1,0 +1,34 @@
+<table id="userList" v-cloak class="table">
+	<thead>
+		<tr>
+			<th>用户名</th>
+			<th>是否允许</th>
+			<th>创建时间</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr v-for="item in list">
+			<td>{{ item.username }}</td>
+			<td>{{ accessFunc(item.access) }}</td>
+			<td>{{ formatTime(item.createTime) }}</td>
+			<td><a :href="'/user/delete/'+item._id">删除</a>&nbsp;&nbsp;<a :href="'/user/updacc/'+item._id+'?access='+item.access">设置</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+	new Vue({
+		el: '#userList',
+		data() {
+			return {
+				list: []
+			}
+		},
+		mounted: function() {
+			this.$http.get('/user/list').then(response=>{
+				this.list = JSON.parse(response.bodyText);
+			});
+		}
+	});
+</script>

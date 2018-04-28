@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ueditor</title>
+</head>
+<body>
+
+ 	<!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+        
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('container', {
+        	 toolbars: [
+		        ['source']
+		    ],
+		    autoHeightEnabled: true,
+		    autoFloatEnabled: true
+        });
+    </script>
+</body>
+</html>
