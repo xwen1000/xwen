@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const vhost = require('vhost');
 const router = express.Router();
-app.use(vhost('admin.xwen.com', router));
+app.use(vhost(config.host, router));
 
 const csurf = require('csurf');
 app.use(csurf({cookie: true}));
